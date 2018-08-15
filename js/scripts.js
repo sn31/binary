@@ -17,9 +17,21 @@ var conversionBtoD = function (binary) {
 }
 
 var conversionDtoB = function (decimal, base) {
-  var result = 0;
-  return result = decimal.toString(base);
-  
+  var result = "";
+  var remainder = 0;
+  var exp = 0;
+  while (decimal > 0) {
+    if (decimal % Math.pow(2, exp + 1)) {
+      remainder = 1;
+    }
+    else {
+      remainder = 0;
+    }
+  result += remainder.toString();
+  decimal -= remainder*Math.pow(2,exp);
+  exp ++;
+  }
+  return result.split("").reverse().join("");
 }
 
 $(document).ready(function () {
