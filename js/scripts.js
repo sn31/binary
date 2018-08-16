@@ -34,16 +34,13 @@ $(document).ready(function () {
     event.preventDefault();
     var inputNumber = parseInt($("#inputNumber").val());
     var inputBase = parseInt($("#inputBase").val());
-    if (inputBase !== "") {
-      $("#result").empty();
-      $("#result").append(conversionDtoB(numberCheck(inputNumber, inputBase), inputBase));
-      console.log(numberCheck(inputNumber, inputBase));
-      console.log(conversionDtoB(numberCheck(inputNumber, inputBase), inputBase));
-    }
-    else {
-      $("#result").empty();
-      $("#result").append(numberCheck(inputNumber, inputBase));
-    }
-
+    
+      $("#baseResult").empty();
+      $("#decimalResult").empty();
+      $("#outputBase").empty();
+      $("#baseResult").append(conversionDtoB(numberCheck(inputNumber, inputBase), inputBase));
+      $("#outputBase").append(inputBase);
+      $("#decimalResult").append(numberCheck(inputNumber, inputBase));
+      $("#result").show();
   })
 });
