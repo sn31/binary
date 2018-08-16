@@ -21,15 +21,10 @@ var conversionDtoB = function (decimal, base) {
   var remainder = 0;
   var exp = 0;
   while (decimal > 0) {
-    if (decimal % Math.pow(2, exp + 1)) {
-      remainder = 1;
-    }
-    else {
-      remainder = 0;
-    }
-  result += remainder.toString();
-  decimal -= remainder*Math.pow(2,exp);
-  exp ++;
+    remainder = decimal % base;
+    result += remainder.toString();
+    decimal = Math.floor(decimal / base);
+    exp++;
   }
   return result.split("").reverse().join("");
 }
